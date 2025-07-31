@@ -18,6 +18,10 @@ export default defineUserConfig({
     ],
     navbar: [
       {
+        text: "Our own NFT!",
+        link: "https://easyntropy.tech/easyntrophy/",
+      },
+      {
         text: "About",
         link: "/about/",
       },
