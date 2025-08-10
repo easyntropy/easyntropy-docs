@@ -112,6 +112,8 @@ function easyntropyFulfill(uint64 requestId, bytes32 seed) external onlyEasyntro
 ### Fees
 Unlike other solutions, Easyntropy uses balances associated with each caller address. If your address has enough balance to pay for a request, the request will be processed.
 
+The current fees can be found [here](/documentation/pricing.html).
+
 The most common way to pay for a request is to send the required amount of ETH along with the request. If you use `easyntropyRequestWithCallback()` The fee will be automatically sent along with the transaction.
 
 ```solidity:no-line-numbers
