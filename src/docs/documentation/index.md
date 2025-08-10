@@ -36,8 +36,8 @@ The `_entropy` parameter should point to the Easyntropy oracle contract. The add
 
 | Network           | Address                                      |
 |-------------------|----------------------------------------------|
-| Ethereum mainnet  | `0x8EAfe1cBaE6426aa84AFf6D97ea48029d92a5767` |
-| Ethereum testnet  | `0xFc3f5cDAE509d98d8Ef6e1bdCB335ba55Cf68628` |
+| Ethereum mainnet  | [`0x8EAfe1cBaE6426aa84AFf6D97ea48029d92a5767`](https://etherscan.io/address/0x8EAfe1cBaE6426aa84AFf6D97ea48029d92a5767) |
+| Ethereum testnet  | [`0xFc3f5cDAE509d98d8Ef6e1bdCB335ba55Cf68628`](https://sepolia.etherscan.io/address/0xFc3f5cDAE509d98d8Ef6e1bdCB335ba55Cf68628) |
 
 ### Usage
 
@@ -111,6 +111,8 @@ function easyntropyFulfill(uint64 requestId, bytes32 seed) external onlyEasyntro
 
 ### Fees
 Unlike other solutions, Easyntropy uses balances associated with each caller address. If your address has enough balance to pay for a request, the request will be processed.
+
+The current fees can be found [here](/documentation/pricing.html).
 
 The most common way to pay for a request is to send the required amount of ETH along with the request. If you use `easyntropyRequestWithCallback()` The fee will be automatically sent along with the transaction.
 

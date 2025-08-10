@@ -13,7 +13,7 @@ export default defineUserConfig({
     sidebar: [
       {
         text: "",
-        children: ["/documentation/", "/documentation/examples"],
+        children: [ "/documentation/pricing", "/documentation/", "/documentation/examples"],
       },
     ],
     navbar: [
@@ -24,6 +24,10 @@ export default defineUserConfig({
       {
         text: "About",
         link: "/about/",
+      },
+      {
+        text: "Pricing",
+        link: "/documentation/pricing",
       },
       {
         text: "Documentation",
