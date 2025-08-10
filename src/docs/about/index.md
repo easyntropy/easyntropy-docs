@@ -14,7 +14,7 @@ Originally built to support a randomness-based NFT game we were developing, Easy
 
 Whether you're building games, dApps, or just need reliable randomness on-chain, Easyntropy aims to keep things simple, intuitive, and open.
 
-Also, check out and try [our own randomness-powered NFT!](https://easyntropy.tech/easyntrophy/)
+Also, check out and try [our own demo randomness-based NFT!](https://easyntropy.tech/easyntrophy/)
 
 cheers,
 
