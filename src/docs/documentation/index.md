@@ -39,6 +39,9 @@ The `_entropy` parameter should point to the Easyntropy oracle contract. The add
 | Ethereum mainnet  | [`0x8EAfe1cBaE6426aa84AFf6D97ea48029d92a5767`](https://etherscan.io/address/0x8EAfe1cBaE6426aa84AFf6D97ea48029d92a5767) |
 | Ethereum testnet  | [`0xFc3f5cDAE509d98d8Ef6e1bdCB335ba55Cf68628`](https://sepolia.etherscan.io/address/0xFc3f5cDAE509d98d8Ef6e1bdCB335ba55Cf68628) |
 
+### Gas limit
+The entropy callback function is subject to a gas limit of `200000`.
+
 ### Usage
 
 Once your contract implements the `EasyntropyConsumer` interface, you can start using the oracle.
