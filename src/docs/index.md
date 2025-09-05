@@ -93,7 +93,7 @@ onMounted(() => {
 const latestMainnetRequests = ref([])
 const fetchLatestMainnetRequests = async () => {
   if (import.meta.env.SSR) return
-  const response = await fetch('/api/rng-requests/latest')
+  const response = await fetch('/mainnet/api/rng-requests/latest')
   const data = await response.json()
   latestMainnetRequests.value = data.map(request => ({
     requestId: request.requestId,
