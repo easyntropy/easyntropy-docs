@@ -219,4 +219,16 @@ https://api.drand.sh/52db9ba70e0cc0f6eaf7803dd07447a1f5477735fd3f661792ba94600c8
 
 (`52db9ba70e0cc0f6eaf7803dd07447a1f5477735fd3f661792ba94600c84e971` is drand [quicknet chainId](https://drand.love/blog/2023/10/16/quicknet-is-live/#quicknet))
 
+#### Salting the seed in `EasyntropyConsumer`
+The seed provided by [drand.love](https://drand.love/) is identical for all users within a single drand revelation time window (approximately 3 seconds). To address this, `EasyntropyConsumer` salts the seed with its own semi-random component.
+
+By default, the `calculateSeed` method is invoked to compute the final seed:
+
+```solidity
+function calculateSeed(bytes32 externalSeed) internal view virtual returns (bytes32 result) {
+  result = keccak256(abi.encodePacked(externalSeed, blockhash(block.number - 1), tx.gasprice));
+}
+```
+
+If your project requires additional variables (such as a player ID), you can override this method to generate a custom seed.
 
