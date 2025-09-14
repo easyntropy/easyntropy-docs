@@ -19,7 +19,7 @@ contract StoreLastSeedDefaultCallback is EasyntropyConsumer {
   event RandomValueObtained(uint64 indexed requestId, bytes32 seed);
   error NotEnoughEth();
 
-  constructor(address _entropy) EasyntropyConsumer(_entropy) {}
+  constructor(address _easyntropy) EasyntropyConsumer(_easyntropy) {}
 
   function requestRandomValue() public payable {
     if (msg.value < easyntropyFee()) revert NotEnoughEth();
@@ -54,7 +54,7 @@ contract StoreLastSeedCustomCallback is EasyntropyConsumer {
   event RandomValueObtained(uint64 indexed requestId, bytes32 seed);
   error NotEnoughEth();
 
-  constructor(address _entropy) EasyntropyConsumer(_entropy) {}
+  constructor(address _easyntropy) EasyntropyConsumer(_easyntropy) {}
 
   function requestRandomValueCustomCallback() public payable {
     if (msg.value < easyntropyFee()) revert NotEnoughEth();
@@ -100,7 +100,7 @@ contract PassPlayerMetadata is EasyntropyConsumer {
   // events & errors
   error NotEnoughEth();
 
-  constructor(address _entropy) EasyntropyConsumer(_entropy) {
+  constructor(address _easyntropy) EasyntropyConsumer(_easyntropy) {
     gladiators[0] = Gladiator({ strength: 1 });
     gladiators[1] = Gladiator({ strength: 1 });
   }
@@ -137,13 +137,13 @@ contract Prepaying is EasyntropyConsumer {
   // support
   bytes32 public latestSeed;
 
-  constructor(address _entropy) EasyntropyConsumer(_entropy) {}
+  constructor(address _easyntropy) EasyntropyConsumer(_easyntropy) {}
 
   function requestRandomValueWithoutPaying() public {
     //
-    // calling entropy.requestWithCallback directly without any fee.
+    // calling easyntropy.requestWithCallback directly without any fee.
     // this is only possible if easyntropyDeposit{ value: ... }() has been called earlier.
-    entropy.requestWithCallback();
+    easyntropy.requestWithCallback();
   }
 
   function easyntropyFulfill(uint64, bytes32 seed) external onlyEasyntropy {
@@ -166,7 +166,7 @@ Make sure to implement:
 import { EasyntropyConsumer } from "easyntropy/EasyntropyConsumer.sol";
 
 contract Widthrawing is EasyntropyConsumer {
-  constructor(address _entropy) EasyntropyConsumer(_entropy) {}
+  constructor(address _easyntropy) EasyntropyConsumer(_easyntropy) {}
 
   function withdrawFromOracle(uint256 amount) public {
     // add your own permission restrictions here...
