@@ -232,3 +232,21 @@ function calculateSeed(bytes32 externalSeed) internal view virtual returns (byte
 
 If your project requires additional variables (such as a player ID), you can override this method to generate a custom seed.
 
+
+### Seamless Pyth Network Adapter (Coming Soon)
+
+Even though your contract is already integrated with the [Pyth Network RNG](https://docs.pyth.network/entropy), you can still use Easyntropy! Simply point the entropy address in your contract to our adapter layer, and that's it!
+
+The main RNG flows are supported:
+
+```plain:no-line-numbers
+V2:
+entropy.requestV2() -> entropyCallback(...)
+
+V1:
+entropy.requestWithCallback{ value: entropyRequestFee }(entropyProvider, semiRandomSeed) -> entropyCallback(...)
+```
+
+Examples and details will be available soon after we expand to L2s. Stay tuned!
+
+
