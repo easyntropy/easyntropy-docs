@@ -69,7 +69,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 const latestTestnetRequests = ref([])
 const fetchLatestTestnetRequests = async () => {
   if (import.meta.env.SSR) return
-  const response = await fetch('/testnet/api/rng-requests/latest')
+  const response = await fetch('/ethereum-testnet/api/rng-requests/latest')
   const data = await response.json()
   latestTestnetRequests.value = data.map(request => ({
     requestId: request.requestId,
@@ -93,7 +93,7 @@ onMounted(() => {
 const latestMainnetRequests = ref([])
 const fetchLatestMainnetRequests = async () => {
   if (import.meta.env.SSR) return
-  const response = await fetch('/mainnet/api/rng-requests/latest')
+  const response = await fetch('/ethereum-mainnet/api/rng-requests/latest')
   const data = await response.json()
   latestMainnetRequests.value = data.map(request => ({
     requestId: request.requestId,
