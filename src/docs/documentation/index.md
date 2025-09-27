@@ -36,8 +36,8 @@ The `_entropy` parameter should point to the Easyntropy oracle contract. The add
 
 | Network           | Address                                      |
 |-------------------|----------------------------------------------|
-| Ethereum mainnet  | [`0x8EAfe1cBaE6426aa84AFf6D97ea48029d92a5767`](https://etherscan.io/address/0x8EAfe1cBaE6426aa84AFf6D97ea48029d92a5767) |
-| Ethereum testnet  | [`0xFc3f5cDAE509d98d8Ef6e1bdCB335ba55Cf68628`](https://sepolia.etherscan.io/address/0xFc3f5cDAE509d98d8Ef6e1bdCB335ba55Cf68628) |
+| Ethereum mainnet  | [`0x2a9adbbad92f37670e8E98fe86a8B2fb07681690`](https://etherscan.io/address/0x2a9adbbad92f37670e8E98fe86a8B2fb07681690) |
+| Ethereum testnet  | [`0x62AdC8dd46E71E6dc04A8EC5304e9E9521A9D436`](https://sepolia.etherscan.io/address/0x62AdC8dd46E71E6dc04A8EC5304e9E9521A9D436) |
 
 ### Gas limit
 The entropy callback function is subject to a gas limit of `200000`.

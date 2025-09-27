@@ -24,7 +24,7 @@ footer: easyntropy.tech © 2024-present
 ---
 
 <div>
-  <h4>Mainnet latest transactions <a target="_blank" href="https://etherscan.io/address/0x8EAfe1cBaE6426aa84AFf6D97ea48029d92a5767">(etherscan)</a>:</h4>
+  <h4>Mainnet latest transactions <a target="_blank" href="https://etherscan.io/address/0x2a9adbbad92f37670e8E98fe86a8B2fb07681690">(etherscan)</a>:</h4>
   <div class="requests-container" style="width: 100%; display: flex; flex-direction: column; gap: 1rem;">
     <div v-for="request in latestMainnetRequests" :key="request.requestId" class="request-item" style="display: flex; border-bottom: 1px solid #ddd; padding: 1rem 0; gap: 70px; color: white">
       <div class="request-content-right">
@@ -44,7 +44,7 @@ footer: easyntropy.tech © 2024-present
 <hr />
 
 <div>
-  <h4>Testnet latest transactions <a target="_blank" href="https://sepolia.etherscan.io/address/0xFc3f5cDAE509d98d8Ef6e1bdCB335ba55Cf68628">(etherscan)</a>:</h4>
+  <h4>Testnet latest transactions <a target="_blank" href="https://sepolia.etherscan.io/address/0x62AdC8dd46E71E6dc04A8EC5304e9E9521A9D436">(etherscan)</a>:</h4>
   <div class="requests-container" style="width: 100%; display: flex; flex-direction: column; gap: 1rem;">
     <div v-for="request in latestTestnetRequests" :key="request.requestId" class="request-item" style="display: flex; border-bottom: 1px solid #ddd; padding: 1rem 0; gap: 70px; color: white">
       <div class="request-content-right">
