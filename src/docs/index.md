@@ -34,7 +34,6 @@ footer: easyntropy.tech © 2024-present
       <div class="request-content-left">
         <span style="color: grey; display: inline-block; width: 90px">tx:</span><a target="_blank" :href="`https://etherscan.io/tx/${request.tx}`" style="font-style: italic; text-decoration: none">{{ request.tx }}</a><br />
         <span style="color: grey; display: inline-block; width: 90px">requester:</span><a target="_blank" :href="`https://etherscan.io/address/${request.requester}`" style="font-style: italic; text-decoration: none">{{ request.requester }}</a><br /><br />
-        <span style="color: grey; display: inline-block; width: 90px">seed id:</span><a target="_blank" :href="`https://api.drand.sh/52db9ba70e0cc0f6eaf7803dd07447a1f5477735fd3f661792ba94600c84e971/public/${request.seedId}`" style="font-style: italic; text-decoration: none">{{ request.seedId }}</a><br />
         <span style="color: grey; display: inline-block; width: 90px">seed:</span>{{ request.seed }}<br />
         <span style="color: grey; display: inline-block; width: 90px">finalSeed:</span>{{ request.destinationSeed }}<br />
       </div>
@@ -54,7 +53,6 @@ footer: easyntropy.tech © 2024-present
       <div class="request-content-left">
         <span style="color: grey; display: inline-block; width: 90px">tx:</span><a target="_blank" :href="`https://sepolia.etherscan.io/tx/${request.tx}`" style="font-style: italic; text-decoration: none">{{ request.tx }}</a><br />
         <span style="color: grey; display: inline-block; width: 90px">requester:</span><a target="_blank" :href="`https://sepolia.etherscan.io/address/${request.requester}`" style="font-style: italic; text-decoration: none">{{ request.requester }}</a><br /><br />
-        <span style="color: grey; display: inline-block; width: 90px">seed id:</span><a target="_blank" :href="`https://api.drand.sh/52db9ba70e0cc0f6eaf7803dd07447a1f5477735fd3f661792ba94600c84e971/public/${request.seedId}`" style="font-style: italic; text-decoration: none">{{ request.seedId }}</a><br />
         <span style="color: grey; display: inline-block; width: 90px">seed:</span>{{ request.seed }}<br />
         <span style="color: grey; display: inline-block; width: 90px">finalSeed:</span>{{ request.destinationSeed }}<br />
       </div>
@@ -75,7 +73,6 @@ const fetchLatestTestnetRequests = async () => {
     requestId: request.requestId,
     requester: request.requester,
     callbackSelector: request.callbackSelector,
-    seedId: request.seedId,
     destinationSeed: request.destinationSeed,
     seed: request.seed,
     tx: request.tx,
@@ -99,7 +96,6 @@ const fetchLatestMainnetRequests = async () => {
     requestId: request.requestId,
     requester: request.requester,
     callbackSelector: request.callbackSelector,
-    seedId: request.seedId,
     destinationSeed: request.destinationSeed,
     seed: request.seed,
     tx: request.tx,
