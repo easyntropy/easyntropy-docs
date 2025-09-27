@@ -4,6 +4,12 @@
 
 Request and store RNG.
 
+::: warning
+V2 migration update required!
+
+While the code below is correct and up to date, the on-chain example needs to be redeployed.
+:::
+
 [Example on Sepolia](https://sepolia.etherscan.io/address/0x61Ce10e6aD3Dee18a1eB1075A6be4C12Ae59F744#readContract)
 
 ```solidity{18}
@@ -38,6 +44,12 @@ contract StoreLastSeedDefaultCallback is EasyntropyConsumer {
 ### Custom Response Callback Function
 
 Request and store RNG using custom callback.
+
+::: warning
+V2 migration update required!
+
+While the code below is correct and up to date, the on-chain example needs to be redeployed.
+:::
 
 [Example on Sepolia](https://sepolia.etherscan.io/address/0xB391b6C35aFbbaa3A2F4979bAd7CC51A080b7D3F#readContract)
 
@@ -75,6 +87,12 @@ contract StoreLastSeedCustomCallback is EasyntropyConsumer {
 In this example we use `requestId` to reference specific data we want to modify when RNG response arrive. To do this we need store requestId in `pendingRequest` map.
 
 Request and store RNG using custom callback.
+
+::: warning
+V2 migration update required!
+
+While the code below is correct and up to date, the on-chain example needs to be redeployed.
+:::
 
 [Example on Sepolia](https://sepolia.etherscan.io/address/0x1d3D2aAc084165E1D493049567cb9cBbeb0F75f4#readContract)
 
@@ -127,6 +145,12 @@ contract PassPlayerMetadata is EasyntropyConsumer {
 
 We can prepay contract balance not to have to pay fees when requesting RNG.
 
+::: warning
+V2 migration update required!
+
+While the code below is correct and up to date, the on-chain example needs to be redeployed.
+:::
+
 [Example on Sepolia](https://sepolia.etherscan.io/address/0xC18c52a33526cd30441d4533C36E09B16C4BD6dE#readContract)
 
 ```solidity{14}
@@ -160,6 +184,12 @@ Make sure to implement:
 - proper permission rules
 - `receive` funciton allowing receiving funds
 
+::: warning
+V2 migration update required!
+
+While the code below is correct and up to date, the on-chain example needs to be redeployed.
+:::
+
 [Example on Sepolia](https://sepolia.etherscan.io/address/0xc4f0f186d34C96Db0BA86099a882cd433A646c4c#readContract)
 
 ```solidity{9,12}
@@ -177,7 +207,6 @@ contract Widthrawing is EasyntropyConsumer {
   receive() external payable {}
 }
 ```
-
 
 ### Testing
 Testing Easyntropy callbacks is straightforward. When using the Foundry's Forge testing framework, instantiate the `Easyntropy` contract and manually execute `responseWithCallback`.
@@ -211,8 +240,7 @@ contract MyContractTest is Test {
       requestId,
       address(subject), // requester
       bytes4(keccak256("easyntropyFulfill(uint64,bytes32)")), // callbackSelector
-      bytes32(uint256(123456789)), // externalSeed
-      1337 // externalSeedId
+      bytes32(uint256(123456789)) // seed
     );
   }
 }

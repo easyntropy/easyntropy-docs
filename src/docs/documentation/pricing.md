@@ -37,7 +37,7 @@ const fetchPrices = async () => {
 
   const provider = new ethers.JsonRpcProvider('https://eth.llamarpc.com');
   const contract = new ethers.Contract(
-    '0x8EAfe1cBaE6426aa84AFf6D97ea48029d92a5767',
+    '0x2a9adbbad92f37670e8E98fe86a8B2fb07681690',
     ['function fee() view returns (uint256)'],
     provider
   );

@@ -36,8 +36,8 @@ The `_entropy` parameter should point to the Easyntropy oracle contract. The add
 
 | Network           | Address                                      |
 |-------------------|----------------------------------------------|
-| Ethereum mainnet  | [`0x8EAfe1cBaE6426aa84AFf6D97ea48029d92a5767`](https://etherscan.io/address/0x8EAfe1cBaE6426aa84AFf6D97ea48029d92a5767) |
-| Ethereum testnet  | [`0xFc3f5cDAE509d98d8Ef6e1bdCB335ba55Cf68628`](https://sepolia.etherscan.io/address/0xFc3f5cDAE509d98d8Ef6e1bdCB335ba55Cf68628) |
+| Ethereum mainnet  | [`0x2a9adbbad92f37670e8E98fe86a8B2fb07681690`](https://etherscan.io/address/0x2a9adbbad92f37670e8E98fe86a8B2fb07681690) |
+| Ethereum testnet  | [`0x62AdC8dd46E71E6dc04A8EC5304e9E9521A9D436`](https://sepolia.etherscan.io/address/0x62AdC8dd46E71E6dc04A8EC5304e9E9521A9D436) |
 
 ### Gas limit
 The entropy callback function is subject to a gas limit of `200000`.
@@ -199,41 +199,44 @@ contract MyContractTest is Test {
       requestId,
       address(subject), // requester
       bytes4(keccak256("easyntropyFulfill(uint64,bytes32)")), // callbackSelector
-      bytes32(uint256(123456789)), // externalSeed
-      1337 // externalSeedId
+      bytes32(uint256(123456789)) // seed
     );
   }
 }
 ```
 
 ### About Randomness
-Easyntropy is an oracle that provides random `bytes32` seeds to Solidity contracts. It uses the [drand.love](https://drand.love/) quicknet chain as its source of randomness.
 
-Each fulfillment emits an on-chain `FulfillmentSucceeded` event, which includes the drand `seed` and `seedId`. These two values ensure full **transparency**, **verifiability**, and **traceability** of the randomness used.
+::: warning
+V2 migration missing info:
 
-To verify a seed, you can use the following API — just replace `<seedId>` with the actual `seedId` from the event:
+Provide information on how to verify seeds based on the `requestId`.
+:::
 
-```plain:no-line-numbers
-https://api.drand.sh/52db9ba70e0cc0f6eaf7803dd07447a1f5477735fd3f661792ba94600c84e971/public/<seedId>
-```
+Easyntropy is an oracle that provides random `bytes32` seeds to Solidity contracts. It combines two sources of randomness:
+- the [drand.love](https://drand.love/) quicknet chain as its source of randomness.
+- internal process-based randomness
 
-(`52db9ba70e0cc0f6eaf7803dd07447a1f5477735fd3f661792ba94600c84e971` is drand [quicknet chainId](https://drand.love/blog/2023/10/16/quicknet-is-live/#quicknet))
+Each fulfillment emits an on-chain `FulfillmentSucceeded` event, which includes the `requestId` and `easyntropySeed`. Based on the `requestId`, you can query (API endpoint coming soon) all information about the request, including the drand seed as well as the internal seed. With those two, you can recreate and verify the final seed.
+
 
 #### Salting the seed in `EasyntropyConsumer`
-The seed provided by [drand.love](https://drand.love/) is identical for all users within a single drand revelation time window (approximately 3 seconds). To address this, `EasyntropyConsumer` salts the seed with its own semi-random component.
+You can provide your own on-chain custom seed salting. If your project provides additional variables (such as a player ID), you can override the `calculateSeed` method in your contract to generate a custom seed.
 
-By default, the `calculateSeed` method is invoked to compute the final seed:
+By default, the `calculateSeed` computes the final seed in the following way:
 
 ```solidity
-function calculateSeed(bytes32 externalSeed) internal view virtual returns (bytes32 result) {
-  result = keccak256(abi.encodePacked(externalSeed, blockhash(block.number - 1), tx.gasprice));
+function calculateSeed(uint64 requestId, bytes32 easyntropySeed) internal view virtual returns (bytes32 result) {
+  result = keccak256(abi.encodePacked(requestId, easyntropySeed, blockhash(block.number - 1), tx.gasprice));
 }
 ```
 
-If your project requires additional variables (such as a player ID), you can override this method to generate a custom seed.
+### Seamless Pyth Network Adapter
 
-
-### Seamless Pyth Network Adapter (Coming Soon)
+::: warning
+Coming soon.
+Examples and details will be available soon after we expand to L2s. Stay tuned!
+:::
 
 Even though your contract is already integrated with the [Pyth Network RNG](https://docs.pyth.network/entropy), you can still use Easyntropy! Simply point the entropy address in your contract to our adapter layer, and that's it!
 
@@ -246,7 +249,5 @@ entropy.requestV2() -> entropyCallback(...)
 V1:
 entropy.requestWithCallback{ value: entropyRequestFee }(entropyProvider, semiRandomSeed) -> entropyCallback(...)
 ```
-
-Examples and details will be available soon after we expand to L2s. Stay tuned!
 
 
