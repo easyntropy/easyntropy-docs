@@ -4,13 +4,7 @@
 
 Request and store RNG.
 
-::: warning
-V2 migration update required!
-
-While the code below is correct and up to date, the on-chain example needs to be redeployed.
-:::
-
-[Example on Sepolia](https://sepolia.etherscan.io/address/0x61Ce10e6aD3Dee18a1eB1075A6be4C12Ae59F744#readContract)
+[Example on Sepolia](https://sepolia.etherscan.io/address/0xd5304F94448DBb590Fa4e8E17EB36Fcda2A3e675#readContract)
 
 ```solidity{18}
 import { EasyntropyConsumer } from "easyntropy/EasyntropyConsumer.sol";
