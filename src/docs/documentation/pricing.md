@@ -47,8 +47,13 @@ const fetchPrices = async () => {
     new ethers.JsonRpcProvider('https://sepolia.drpc.org')
   );
 
-  mainnetPrice.value = `${ethers.formatEther(await contractMainnet.fee())} ETH`;
-  testnetPrice.value = `${ethers.formatEther(await contractTestnet.fee())} ETH`;
+  const [mainnetFee, testnetFee] = await Promise.all([
+    contractMainnet.fee(),
+    contractTestnet.fee()
+  ]);
+
+  mainnetPrice.value = `${ethers.formatEther(mainnetFee)} ETH`;
+  testnetPrice.value = `${ethers.formatEther(testnetFee)} ETH`;
 }
 
 onMounted(() => {
