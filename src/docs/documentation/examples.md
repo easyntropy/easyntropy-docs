@@ -39,13 +39,7 @@ contract StoreLastSeedDefaultCallback is EasyntropyConsumer {
 
 Request and store RNG using custom callback.
 
-::: warning
-V2 migration update required!
-
-While the code below is correct and up to date, the on-chain example needs to be redeployed.
-:::
-
-[Example on Sepolia](https://sepolia.etherscan.io/address/0xB391b6C35aFbbaa3A2F4979bAd7CC51A080b7D3F#readContract)
+[Example on Sepolia](https://sepolia.etherscan.io/address/0x0A23a70a0517cB61e794987163a2922652641d49#readContract)
 
 ```solidity{18}
 import { EasyntropyConsumer } from "easyntropy/EasyntropyConsumer.sol";
