@@ -35,16 +35,20 @@ const testnetPrice = ref("loading...");
 const fetchPrices = async () => {
   if (import.meta.env.SSR) return;
 
-  const provider = new ethers.JsonRpcProvider('https://eth.llamarpc.com');
-  const contract = new ethers.Contract(
+  const contractMainnet = new ethers.Contract(
     '0x2a9adbbad92f37670e8E98fe86a8B2fb07681690',
     ['function fee() view returns (uint256)'],
-    provider
+    new ethers.JsonRpcProvider('https://eth.llamarpc.com')
   );
 
-  const fee = await contract.fee();
-  mainnetPrice.value = `${ethers.formatEther(fee)} ETH`;
-  testnetPrice.value = "0.00000001 ETH";
+  const contractTestnet = new ethers.Contract(
+    '0x62AdC8dd46E71E6dc04A8EC5304e9E9521A9D436',
+    ['function fee() view returns (uint256)'],
+    new ethers.JsonRpcProvider('https://sepolia.drpc.org')
+  );
+
+  mainnetPrice.value = `${ethers.formatEther(await contractMainnet.fee())} ETH`;
+  testnetPrice.value = `${ethers.formatEther(await contractTestnet.fee())} ETH`;
 }
 
 onMounted(() => {
