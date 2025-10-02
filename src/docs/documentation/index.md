@@ -44,7 +44,7 @@ The entropy callback function is subject to a gas limit of `200000`.
 
 ### Usage
 
-Once your contract implements the `EasyntropyConsumer` interface, you can start using the oracle.
+Once your contract inherits from `EasyntropyConsumer`, you can start using the oracle.
 
 To make a RNG request, call the `easyntropyRequestWithCallback()` function  (provided by `EasyntropyConsumer`) on *your* contract. The fee will be automatically sent along with the transaction.
 
