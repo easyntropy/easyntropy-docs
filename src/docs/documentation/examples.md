@@ -76,13 +76,7 @@ In this example we use `requestId` to reference specific data we want to modify 
 
 Request and store RNG using custom callback.
 
-::: warning
-V2 migration update required!
-
-While the code below is correct and up to date, the on-chain example needs to be redeployed.
-:::
-
-[Example on Sepolia](https://sepolia.etherscan.io/address/0x1d3D2aAc084165E1D493049567cb9cBbeb0F75f4#readContract)
+[Example on Sepolia](https://sepolia.etherscan.io/address/0x367a7D7F7a033D7d84Cb433D255CbEE088Be3c4e#readContract)
 
 ```solidity{15,30-31,36,40}
 import { EasyntropyConsumer } from "easyntropy/EasyntropyConsumer.sol";
