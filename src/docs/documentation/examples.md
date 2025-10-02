@@ -160,13 +160,7 @@ Make sure to implement:
 - proper permission rules
 - `receive` funciton allowing receiving funds
 
-::: warning
-V2 migration update required!
-
-While the code below is correct and up to date, the on-chain example needs to be redeployed.
-:::
-
-[Example on Sepolia](https://sepolia.etherscan.io/address/0xc4f0f186d34C96Db0BA86099a882cd433A646c4c#readContract)
+[Example on Sepolia](https://sepolia.etherscan.io/address/0xeb182B5ffBaD3f0E96f131F2Ca86C80014Fc689B#readContract)
 
 ```solidity{9,12}
 import { EasyntropyConsumer } from "easyntropy/EasyntropyConsumer.sol";
