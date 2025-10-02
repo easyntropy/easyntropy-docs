@@ -28,11 +28,11 @@ easyntropy/=lib/easyntropy-contracts/src/contracts/Easyntropy/
 import { EasyntropyConsumer } from "easyntropy/EasyntropyConsumer.sol";
 
 contract DemoContract is EasyntropyConsumer {
-  constructor(address _entropy) EasyntropyConsumer(_entropy) {}
+  constructor(address _easyntropy) EasyntropyConsumer(_easyntropy) {}
 }
 ```
 
-The `_entropy` parameter should point to the Easyntropy oracle contract. The addresses are:
+The `_easyntropy` parameter should point to the Easyntropy oracle contract. The addresses are:
 
 | Network           | Address                                      |
 |-------------------|----------------------------------------------|
@@ -96,13 +96,13 @@ This is especially useful if your contract uses RNG in multiple scenarios. It al
 #### RNG request in prepay scenario (without sending the fee with each request)
 Easyntropy allows you to prepay your balance so you don’t have to send the fee with each transaction.
 
-Since the `easyntropyRequestWithCallback()` function automatically sends fees, the proper way to send a request to the oracle is to call underlying `entropy.requestWithCallback()`:
+Since the `easyntropyRequestWithCallback()` function automatically sends fees, the proper way to send a request to the oracle is to call underlying `easyntropy.requestWithCallback()`:
 
 ```solidity
 function exampleRNGRequestWithoutFees() public payable {
   //
   // Assuming your balance covers the RNG fees, you don't need to send any additional fee:
-  uint64 requestId = entropy.requestWithCallback();
+  uint64 requestId = easyntropy.requestWithCallback();
 
   // See the examples page for how to use `requestId`
 }
@@ -152,7 +152,7 @@ Funds will be withdrawn to the corresponding contract address, so ensure your co
 import { EasyntropyConsumer } from "easyntropy/EasyntropyConsumer.sol";
 
 contract DemoContract is EasyntropyConsumer {
-  constructor(address _entropy) EasyntropyConsumer(_entropy) {}
+  constructor(address _easyntropy) EasyntropyConsumer(_easyntropy) {}
 
   function withdrawFromEasyntropy(uint256 amount) public {
     easyntropyWithdraw(amount);
