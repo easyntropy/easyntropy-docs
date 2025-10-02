@@ -127,13 +127,7 @@ contract PassPlayerMetadata is EasyntropyConsumer {
 
 We can prepay contract balance not to have to pay fees when requesting RNG.
 
-::: warning
-V2 migration update required!
-
-While the code below is correct and up to date, the on-chain example needs to be redeployed.
-:::
-
-[Example on Sepolia](https://sepolia.etherscan.io/address/0xC18c52a33526cd30441d4533C36E09B16C4BD6dE#readContract)
+[Example on Sepolia](https://sepolia.etherscan.io/address/0xB1Ac137647F0AA85664153b4c21Dd6FcB435cCdC#readContract)
 
 ```solidity{14}
 import { EasyntropyConsumer } from "easyntropy/EasyntropyConsumer.sol";
