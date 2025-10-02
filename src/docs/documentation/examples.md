@@ -4,13 +4,7 @@
 
 Request and store RNG.
 
-::: warning
-V2 migration update required!
-
-While the code below is correct and up to date, the on-chain example needs to be redeployed.
-:::
-
-[Example on Sepolia](https://sepolia.etherscan.io/address/0x61Ce10e6aD3Dee18a1eB1075A6be4C12Ae59F744#readContract)
+[Example on Sepolia](https://sepolia.etherscan.io/address/0xd5304F94448DBb590Fa4e8E17EB36Fcda2A3e675#readContract)
 
 ```solidity{18}
 import { EasyntropyConsumer } from "easyntropy/EasyntropyConsumer.sol";
@@ -45,13 +39,7 @@ contract StoreLastSeedDefaultCallback is EasyntropyConsumer {
 
 Request and store RNG using custom callback.
 
-::: warning
-V2 migration update required!
-
-While the code below is correct and up to date, the on-chain example needs to be redeployed.
-:::
-
-[Example on Sepolia](https://sepolia.etherscan.io/address/0xB391b6C35aFbbaa3A2F4979bAd7CC51A080b7D3F#readContract)
+[Example on Sepolia](https://sepolia.etherscan.io/address/0x0A23a70a0517cB61e794987163a2922652641d49#readContract)
 
 ```solidity{18}
 import { EasyntropyConsumer } from "easyntropy/EasyntropyConsumer.sol";
@@ -88,13 +76,7 @@ In this example we use `requestId` to reference specific data we want to modify 
 
 Request and store RNG using custom callback.
 
-::: warning
-V2 migration update required!
-
-While the code below is correct and up to date, the on-chain example needs to be redeployed.
-:::
-
-[Example on Sepolia](https://sepolia.etherscan.io/address/0x1d3D2aAc084165E1D493049567cb9cBbeb0F75f4#readContract)
+[Example on Sepolia](https://sepolia.etherscan.io/address/0x367a7D7F7a033D7d84Cb433D255CbEE088Be3c4e#readContract)
 
 ```solidity{15,30-31,36,40}
 import { EasyntropyConsumer } from "easyntropy/EasyntropyConsumer.sol";
@@ -145,13 +127,7 @@ contract PassPlayerMetadata is EasyntropyConsumer {
 
 We can prepay contract balance not to have to pay fees when requesting RNG.
 
-::: warning
-V2 migration update required!
-
-While the code below is correct and up to date, the on-chain example needs to be redeployed.
-:::
-
-[Example on Sepolia](https://sepolia.etherscan.io/address/0xC18c52a33526cd30441d4533C36E09B16C4BD6dE#readContract)
+[Example on Sepolia](https://sepolia.etherscan.io/address/0xB1Ac137647F0AA85664153b4c21Dd6FcB435cCdC#readContract)
 
 ```solidity{14}
 import { EasyntropyConsumer } from "easyntropy/EasyntropyConsumer.sol";
@@ -184,13 +160,7 @@ Make sure to implement:
 - proper permission rules
 - `receive` funciton allowing receiving funds
 
-::: warning
-V2 migration update required!
-
-While the code below is correct and up to date, the on-chain example needs to be redeployed.
-:::
-
-[Example on Sepolia](https://sepolia.etherscan.io/address/0xc4f0f186d34C96Db0BA86099a882cd433A646c4c#readContract)
+[Example on Sepolia](https://sepolia.etherscan.io/address/0xeb182B5ffBaD3f0E96f131F2Ca86C80014Fc689B#readContract)
 
 ```solidity{9,12}
 import { EasyntropyConsumer } from "easyntropy/EasyntropyConsumer.sol";
