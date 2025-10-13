@@ -29,6 +29,7 @@ footer: easyntropy.tech © 2024-present
     <div v-for="request in latestMainnetRequests" :key="request.requestId" class="request-item" style="display: flex; border-bottom: 1px solid #ddd; padding: 1rem 0; gap: 70px; color: white">
       <div class="request-content-right">
         <span style="color: grey">ID:</span> {{ request.requestId }}<br />
+        <span style="color: grey; font-size: 10px">status: {{ request.status }}</span><br />
         <span style="color: grey; font-size: 10px">{{ request.createdAt }}</span>
       </div>
       <div class="request-content-left">
@@ -48,6 +49,7 @@ footer: easyntropy.tech © 2024-present
     <div v-for="request in latestTestnetRequests" :key="request.requestId" class="request-item" style="display: flex; border-bottom: 1px solid #ddd; padding: 1rem 0; gap: 70px; color: white">
       <div class="request-content-right">
         <span style="color: grey">ID:</span> {{ request.requestId }}<br />
+        <span style="color: grey; font-size: 10px">status: {{ request.status }}</span><br />
         <span style="color: grey; font-size: 10px">{{ request.createdAt }}</span>
       </div>
       <div class="request-content-left">
@@ -72,6 +74,7 @@ const fetchLatestTestnetRequests = async () => {
   latestTestnetRequests.value = data.map(request => ({
     requestId: request.requestId,
     requester: request.requester,
+    status: request.status,
     callbackSelector: request.callbackSelector,
     destinationSeed: request.destinationSeed,
     seed: request.seed,
@@ -95,6 +98,7 @@ const fetchLatestMainnetRequests = async () => {
   latestMainnetRequests.value = data.map(request => ({
     requestId: request.requestId,
     requester: request.requester,
+    status: request.status,
     callbackSelector: request.callbackSelector,
     destinationSeed: request.destinationSeed,
     seed: request.seed,
